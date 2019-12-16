@@ -42,7 +42,6 @@ private JPanel centerContent=new JPanel();
         setLayout(new BorderLayout());
         setUndecorated(true);
         setTitle("Tierheim Moabit");
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(1200, 800);
     }
 
