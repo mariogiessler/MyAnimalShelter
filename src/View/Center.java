@@ -60,17 +60,22 @@ public class Center extends JPanel {
         centerImages.removeAll();
         centerContent.setLayout(null);
 
-        JPanel formContent = new JPanel();
+        JPanel formHeader = new JPanel();
+        formHeader.setSize(new Dimension(400,70));
+        formHeader.add(new JLabel("Hier können Sie der Datenbank")).setFont(MyFont.SubText.getValue());
+            formHeader.add(new JLabel("ein neues Tierchen hinzufügen:")).setFont(MyFont.SubText.getValue());
+   formHeader.setOpaque(false);
+   formHeader.setLocation(350,60);
+
 
         JPanel form = new JPanel();
-        form.setLayout(new GridLayout(6, 2));
+        form.setLayout(new GridLayout(6, 1));
         form.setSize(300, 200);
         form.setOpaque(false);
 
         form.add(new JLabel("Tiername:")).setFont(MyFont.MainText.getValue());
         JTextField name = new JTextField();
         name.setFont(MyFont.MainText.getValue());
-        name.setLocation(400, 100);
         form.add(name);
 
         form.add(new JLabel("Tierart:")).setFont(MyFont.MainText.getValue());
@@ -105,6 +110,7 @@ public class Center extends JPanel {
         insertButton.setSize(150, 50);
         insertButton.setLocation(550, 380);
 
+        centerContent.add(formHeader);
         centerContent.add(form);
         centerContent.add(insertButton);
 
