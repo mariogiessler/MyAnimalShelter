@@ -1,4 +1,5 @@
 package Control;
+import View.Center;
 import View.UserWindow;
 
 public class Controller {
@@ -8,7 +9,7 @@ public class Controller {
         window = new UserWindow();
     }
     public static void changeView() {
-		window.setCenterForm();
+		Center.setCenterForm();
 		window.validate();
 		window.repaint();
 	}
