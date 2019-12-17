@@ -1,5 +1,8 @@
 package Control;
 
+import Model.Mongo;
+import View.Form;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,10 +20,17 @@ public class ButtonListener implements ActionListener {
                 System.exit(0);
                 break;
             case "Übersicht":
-                // TODO
+                Mongo.getTableContent();
                 break;
             case "Neues Tierchen":
                 Controller.changeView();
+                break;
+            case "einfügen":
+                Mongo.addAnimal();
+                Controller.getFormValues().clear();
+                for (JTextField field : Form.getFormFields()) {
+                    field.setText("");
+                }
                 break;
         }
 

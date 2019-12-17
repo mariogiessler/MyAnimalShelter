@@ -1,13 +1,11 @@
 package View;
 
+import View.Styles.MyColor;
+import View.Styles.MyFont;
+
 import javax.swing.*;
 import javax.swing.border.Border;
-import javax.swing.plaf.basic.BasicSplitPaneUI;
 import java.awt.*;
-
-import Control.Controller;
-import View.Styles.*;
-import Control.ButtonListener;
 
 public class Center extends JPanel {
     private static final long serialVersionUID = 1L;
@@ -58,62 +56,10 @@ public class Center extends JPanel {
     public static void setCenterForm() {
         centerContent.removeAll();
         centerImages.removeAll();
-        centerContent.setLayout(null);
+        centerContent.setLayout(new BorderLayout());
 
-        JPanel formHeader = new JPanel();
-        formHeader.setSize(new Dimension(400,70));
-        formHeader.add(new JLabel("Hier können Sie der Datenbank")).setFont(MyFont.SubText.getValue());
-            formHeader.add(new JLabel("ein neues Tierchen hinzufügen:")).setFont(MyFont.SubText.getValue());
-   formHeader.setOpaque(false);
-   formHeader.setLocation(350,60);
-
-
-        JPanel form = new JPanel();
-        form.setLayout(new GridLayout(6, 1));
-        form.setSize(300, 200);
-        form.setOpaque(false);
-
-        form.add(new JLabel("Tiername:")).setFont(MyFont.MainText.getValue());
-        JTextField name = new JTextField();
-        name.setFont(MyFont.MainText.getValue());
-        form.add(name);
-
-        form.add(new JLabel("Tierart:")).setFont(MyFont.MainText.getValue());
-        JTextField species = new JTextField();
-        species.setFont(MyFont.MainText.getValue());
-        form.add(species);
-
-        form.add(new JLabel("Rasse:")).setFont(MyFont.MainText.getValue());
-        JTextField breed = new JTextField();
-        breed.setFont(MyFont.MainText.getValue());
-        form.add(breed);
-
-        form.add(new JLabel("Alter:")).setFont(MyFont.MainText.getValue());
-        JTextField age = new JTextField();
-        age.setFont(MyFont.MainText.getValue());
-        form.add(age);
-
-        form.add(new JLabel("Geschlecht:")).setFont(MyFont.MainText.getValue());
-        JTextField gender = new JTextField();
-        gender.setFont(MyFont.MainText.getValue());
-        form.add(gender);
-
-        form.add(new JLabel("Farbe:")).setFont(MyFont.MainText.getValue());
-        JTextField color = new JTextField();
-        color.setFont(MyFont.MainText.getValue());
-        form.add(color);
-
-        form.setLocation(400, 150);
-
-        JButton insertButton = new JButton("einfügen");
-        insertButton.addActionListener(ButtonListener.instance);
-        insertButton.setSize(150, 50);
-        insertButton.setLocation(550, 380);
-
-        centerContent.add(formHeader);
-        centerContent.add(form);
-        centerContent.add(insertButton);
-
+        centerContent.add(Form.instance, BorderLayout.CENTER);
+        Form.instance.setForm();
     }
 
 
