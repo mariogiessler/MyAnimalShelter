@@ -33,20 +33,22 @@ public class Styles {
         private Font value;
 
         MyFont(String name, int style, int size) {
+            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+
             try {
-                 Font head = Font.createFont(Font.TRUETYPE_FONT, new File("res/fonts/Vanilla.ttf"));
+                Font head = Font.createFont(Font.TRUETYPE_FONT, new File("res/fonts/Vanilla.ttf"));
                 Font bold = Font.createFont(Font.TRUETYPE_FONT, new File("res/fonts/Quicksand-Bold.otf"));
-            Font main = Font.createFont(Font.TRUETYPE_FONT, new File("res/fonts/Quicksand-Regular.otf"));
-                GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+                Font main = Font.createFont(Font.TRUETYPE_FONT, new File("res/fonts/Quicksand-Regular.otf"));
+
                 ge.registerFont(head);
                 ge.registerFont(main);
                 ge.registerFont(bold);
-
             } catch (FontFormatException e) {
                 e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
             value = new Font(name, style, size);
         }
 

@@ -1,16 +1,14 @@
 package View;
 
 import Control.FrameMoveListener;
+import View.Styles.MyColor;
+import View.Styles.MyFont;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
-
-import View.Styles.MyFont;
-import View.Styles.MyColor;
 
 public class Header extends JPanel {
     private static final long serialVersionUID = 1L;
@@ -32,6 +30,8 @@ public class Header extends JPanel {
         date.setHorizontalAlignment(SwingConstants.CENTER);
         add(welcome, BorderLayout.PAGE_START);
         add(date, BorderLayout.PAGE_END);
+
+        setCursor(Cursor.getPredefinedCursor(Cursor.MOVE_CURSOR));
 
         addMouseMotionListener(FrameMoveListener.instance);
         addMouseListener(FrameMoveListener.instance);
