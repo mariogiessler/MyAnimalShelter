@@ -1,7 +1,6 @@
 package view;
 
 import controll.Controller;
-import view.Styles.MyColor;
 import view.Styles.MyFont;
 
 import javax.swing.*;
@@ -11,11 +10,12 @@ import java.util.ArrayList;
 public class Form extends JPanel {
     public static Form form;
     private static ArrayList<JTextField> formFields = new ArrayList<>();
-    private static Object[] formLabels = {"Tiername:", "Tierart:", "Rasse:", "Alter:", "Geschlecht:", "Farbe:"};
+    private static Object[] formLabels = {"Tiername", "Tierart", "Rasse", "Alter", "Geschlecht", "Farbe"};
 
     private Form() {
         setLayout(null);
-        setBackground(MyColor.CenterColor.getValue());
+        setOpaque(false);
+
         setSize(400, 400);
         setLocation(50, 50);
 
@@ -36,7 +36,7 @@ public class Form extends JPanel {
             JPanel rowPanel = new JPanel();
             rowPanel.setOpaque(false);
 
-            JLabel rowLabel = new JLabel((String) position);
+            JLabel rowLabel = new JLabel((String) position+" :");
             rowLabel.setPreferredSize(new Dimension(150, 30));
             rowLabel.setFont(MyFont.MainText.getValue());
             rowLabel.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -49,7 +49,7 @@ public class Form extends JPanel {
             JTextField rowField = new JTextField();
             rowField.setPreferredSize(new Dimension(300, 30));
             rowField.setFont(MyFont.MainText.getValue());
-            rowField.setName(((String) position).replace(":", "").trim());
+            rowField.setName(((String) position).trim().toLowerCase());
             rowField.addFocusListener(Controller.getFieldListener());
 
             rowPanel.add(rowField);
@@ -62,6 +62,7 @@ public class Form extends JPanel {
         formButton.addActionListener(Controller.getButtonListener());
         formButton.setSize(150, 50);
         formButton.setLocation(660, 500);
+        formButton.setFocusPainted(false);
 
         add(formHeader);
         add(formCenter);

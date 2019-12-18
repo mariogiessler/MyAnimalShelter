@@ -28,7 +28,9 @@ public class Styles {
         HeadText("Vanilla", Font.ITALIC, 40),
         SubText("Quicksand-Bold", Font.BOLD, 20),
         ButtonText("Quicksand-Bold", Font.BOLD, 20),
-        MainText("Quicksand-Regular", Font.PLAIN, 24);
+        MainText("Quicksand-Regular", Font.PLAIN, 24),
+        TableHeadText("Quicksand-Bold", Font.ITALIC, 26),
+        TableMainText("Quicksand-Regular", Font.PLAIN, 20);
 
         private Font value;
 

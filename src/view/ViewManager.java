@@ -2,6 +2,7 @@ package view;
 
 import javax.swing.*;
 import java.awt.*;
+import view.Styles.*;
 
 public class ViewManager {
     private static UserWindow window;
@@ -20,18 +21,30 @@ public class ViewManager {
 
     private static void setCenter() {
         window.add(Center.getInstance(), BorderLayout.CENTER);
+        Center.getInstance().add(Welcome.getCenterImages(), BorderLayout.PAGE_START);
+        Center.getInstance().add(Welcome.getCenterContent(), BorderLayout.CENTER);
     }
 
     public static void setCenterForm() {
         Center.getInstance().removeAll();
         Center.getInstance().add(Form.getInstance(), BorderLayout.CENTER);
-        window.validate();
+        window.repaint();
+        window.revalidate();
     }
 
     public static void setCenterTable() {
         Center.getInstance().removeAll();
-        new Table();
-        Center.getInstance().add(Table.getInstance());
+
+        JLabel label = new JLabel("Alle Tierchen in der Übersicht:");
+        label.setPreferredSize(new Dimension(600,70));
+        label.setBackground(MyColor.CenterColor.getValue());
+        label.setFont(MyFont.SubText.getValue());
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+
+
+        Center.getInstance().add(label, BorderLayout.PAGE_START);
+
+        Center.getInstance().add(Table.getInstance().getScrollPane(), BorderLayout.CENTER);
         window.repaint();
         window.revalidate();
     }

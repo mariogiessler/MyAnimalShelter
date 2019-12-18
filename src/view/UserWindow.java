@@ -8,7 +8,7 @@ public class UserWindow extends JFrame {
     private static final long serialVersionUID = 1L;
     private static UserWindow window;
 
-    private JPanel centerContent=new JPanel();
+    private JPanel centerContent = new JPanel();
 
     private UserWindow() {
         setTitle("Tierheim Moabit");

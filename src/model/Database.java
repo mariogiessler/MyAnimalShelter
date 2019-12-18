@@ -36,7 +36,7 @@ public class Database {
         int i = 0;
         while (it.hasNext()) {
             Document Animal = it.next();
-            Animals[i] = new Object[]{Animal.get("Tiername"), Animal.get("Tierart"), Animal.get("Rasse"), Animal.get("Alter"), Animal.get("Geschlecht"), Animal.get("Farbe")};
+            Animals[i] = new Object[]{Animal.get("tiername"), Animal.get("tierart"), Animal.get("rasse"), Animal.get("alter"), Animal.get("geschlecht"), Animal.get("farbe")};
             i++;
         }
         return Animals;
