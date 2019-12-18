@@ -1,6 +1,6 @@
 package Control;
 
-import Model.Mongo;
+import Model.Database;
 import View.Form;
 
 import javax.swing.*;
@@ -20,13 +20,13 @@ public class ButtonListener implements ActionListener {
                 System.exit(0);
                 break;
             case "Übersicht":
-                Mongo.getTableContent();
+                Database.getTableContent();
                 break;
             case "Neues Tierchen":
                 Controller.changeView();
                 break;
             case "einfügen":
-                Mongo.addAnimal();
+                Database.addAnimal();
                 Controller.getFormValues().clear();
                 for (JTextField field : Form.getFormFields()) {
                     field.setText("");

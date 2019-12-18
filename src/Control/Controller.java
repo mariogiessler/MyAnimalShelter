@@ -1,6 +1,6 @@
 package Control;
 
-import Model.Mongo;
+import Model.Database;
 import View.Center;
 import View.UserWindow;
 
@@ -15,7 +15,7 @@ public class Controller {
 
     public static void main(String[] args) {
         window = new UserWindow();
-        new Mongo();
+        new Database();
     }
 
     public static void changeView() {

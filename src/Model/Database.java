@@ -9,7 +9,7 @@ import org.bson.Document;
 
 import java.util.ArrayList;
 
-public class Mongo {
+public class Database {
 	static MongoClient connection = new MongoClient();
 	static MongoDatabase db = connection.getDatabase("AnimalShelter");
 	static MongoCollection<Document> collection = db.getCollection("Animals");
@@ -17,7 +17,7 @@ public class Mongo {
 	private static ArrayList<ArrayList<Object>> dataSet;
 	private Document entries;
 
-	public Mongo() {
+	public Database() {
 	}
 
 	public static void addAnimal() {
