@@ -1,5 +1,7 @@
 package Control;
 
+import View.ViewManager;
+
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -13,7 +15,7 @@ public class FrameMoveListener implements MouseListener, MouseMotionListener {
     public void mouseDragged(MouseEvent mouseEvent) {
         int mousePositionX = (int) mouseEvent.getLocationOnScreen().getX();
         int mousePositionY = (int) mouseEvent.getLocationOnScreen().getY();
-        Controller.setFramePosition(mousePositionX - startDistanceX, mousePositionY - startDistanceY);
+        ViewManager.setFramePosition(mousePositionX - startDistanceX, mousePositionY - startDistanceY);
     }
 
     @Override
@@ -28,9 +30,9 @@ public class FrameMoveListener implements MouseListener, MouseMotionListener {
 
     @Override
     public void mousePressed(MouseEvent mouseEvent) {
-        startDistanceX = (int) (mouseEvent.getLocationOnScreen().getX() - Controller.getFrame().getLocationOnScreen().getX());
-        startDistanceY = (int) (mouseEvent.getLocationOnScreen().getY() - Controller.getFrame().getLocationOnScreen().getY());
-        Controller.getFrame().getLocationOnScreen().getX();
+        startDistanceX = (int) (mouseEvent.getLocationOnScreen().getX() - ViewManager.getFrame().getLocationOnScreen().getX());
+        startDistanceY = (int) (mouseEvent.getLocationOnScreen().getY() - ViewManager.getFrame().getLocationOnScreen().getY());
+        ViewManager.getFrame().getLocationOnScreen().getX();
     }
 
     @Override

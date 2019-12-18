@@ -1,54 +1,53 @@
 package Model;
 
-import Control.Controller;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+
+import static com.mongodb.client.model.Filters.eq;
 
 public class Database {
-	static MongoClient connection = new MongoClient();
-	static MongoDatabase db = connection.getDatabase("AnimalShelter");
-	static MongoCollection<Document> collection = db.getCollection("Animals");
-	private static String[] tableTitles;
-	private static ArrayList<ArrayList<Object>> dataSet;
-	private Document entries;
+    static MongoClient connection = new MongoClient();
+    static MongoDatabase db = connection.getDatabase("AnimalShelter");
+    static MongoCollection<Document> collection = db.getCollection("Animals");
+    private static HashMap<String, Object> formValues = new HashMap<>();
 
-	public Database() {
-	}
+    public Database() {
+    }
 
-	public static void addAnimal() {
-		Document animal = new Document(Controller.getFormValues());
-		collection.insertOne(animal);
-		System.out.println(animal.values());
-	}
+    public static boolean addAnimal() {
+        Document animal = new Document(formValues);
+        Document doc = collection.find(eq("tiername", animal.get("tiername"))).first();
+        if (doc != null) {
+            return false;
+        } else {
+            collection.insertOne(animal);
+            return true;
+        }
+    }
 
-	public static String[] getTableTitles() {
-		return tableTitles = collection.find().first().keySet().toArray(new String[0]);
-	}
+    public static Object[][] getAnimals() {
+        Object[][] Animals = new Object[(int) collection.count()][];
+        Iterator<Document> it = collection.find().iterator();
+        int i = 0;
+        while (it.hasNext()) {
+            Document Animal = it.next();
+            Animals[i] = new Object[]{Animal.get("Tiername"), Animal.get("Tierart"), Animal.get("Rasse"), Animal.get("Alter"), Animal.get("Geschlecht"), Animal.get("Farbe")};
+            i++;
+        }
+        return Animals;
+    }
 
-	public static void getTableContent() {
-		MongoCursor<Document> table = collection.find().iterator();
-		dataSet = new ArrayList<ArrayList<Object>>();
-		ArrayList<Object> dataContent = new ArrayList<>();
-		while (table.hasNext()) {
+    public static HashMap<String, Object> getFormValues() {
+        return formValues;
+    }
 
-			dataContent.addAll(table.next().values());
-
-
-		}
-		dataSet.add(dataContent);
-		for (ArrayList<Object> i : dataSet) {
-			for (Object j : i) {
-				System.out.println(i);
-			}
-		}
-
-	}
-
-
+    public static void clearFormValues() {
+        formValues.clear();
+    }
 }
 

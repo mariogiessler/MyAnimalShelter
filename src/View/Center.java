@@ -9,11 +9,12 @@ import java.awt.*;
 
 public class Center extends JPanel {
     private static final long serialVersionUID = 1L;
+    private static Center center;
 
     private static JPanel centerContent = new JPanel();
     private static JPanel centerImages = new JPanel();
 
-    public Center() {
+    private Center() {
         setLayout(new BorderLayout());
         Border raised = BorderFactory.createRaisedBevelBorder();
         Border lowered = BorderFactory.createLoweredBevelBorder();
@@ -21,16 +22,16 @@ public class Center extends JPanel {
         Border invisible = BorderFactory.createEmptyBorder(25, 25, 25, 25);
         Border border = BorderFactory.createCompoundBorder(invisible, compound);
         setBorder(border);
-        setCenterGreeting();
-    }
 
-    private void setCenterGreeting() {
+        Cursor c = getToolkit().createCustomCursor(new ImageIcon("res/cursor/turtle.png").getImage(), new Point(10, 10), "Cursor");
+        setCursor(c);
+
         centerContent.setLayout(new GridLayout(10, 1));
         centerImages.setLayout(new GridLayout(1, 4));
         centerContent.setBackground(MyColor.CenterColor.getValue());
         centerImages.setBackground(MyColor.CenterColor.getValue());
         JLabel text = new JLabel("Hallo! Wir bieten eine große Auswahl an liebenswerten Tierchen,");
-          JLabel text1 = new JLabel("die alle ein neues Zuhause suchen.");
+        JLabel text1 = new JLabel("die alle ein neues Zuhause suchen.");
         JLabel text2 = new JLabel("Für alle adoptierten Lieblinge gibt es Tierarztbesuche gratis auf Lebenszeit.");
 
         text.setFont(MyFont.MainText.getValue());
@@ -51,17 +52,15 @@ public class Center extends JPanel {
         centerContent.add(text2);
         add(centerImages, BorderLayout.PAGE_START);
         add(centerContent, BorderLayout.CENTER);
+
+
     }
 
-    public static void setCenterForm() {
-        centerContent.removeAll();
-        centerImages.removeAll();
-        centerContent.setLayout(new BorderLayout());
-
-        centerContent.add(Form.instance, BorderLayout.CENTER);
-        Form.instance.setForm();
+    public static Center getInstance() {
+        if (center == null) {
+            center = new Center();
+        }
+        return center;
     }
-
-
 }
 
