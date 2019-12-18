@@ -1,15 +1,17 @@
-package View;
-import java.awt.Image;
+package view;
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
+
 public class AnimalPic {
 	public static ImageIcon getCat() {
 		Image img = null;
 		try {
-			  img = ImageIO.read(new File("res/pics/cat.png" ));
-		} catch(IOException e) {
+			img = ImageIO.read(new File("res/pics/cat.png"));
+		} catch (IOException e) {
 
 		}
 	img = img.getScaledInstance(170, 200, Image.SCALE_SMOOTH);

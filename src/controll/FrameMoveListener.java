@@ -1,6 +1,6 @@
-package Control;
+package controll;
 
-import View.ViewManager;
+import view.ViewManager;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;

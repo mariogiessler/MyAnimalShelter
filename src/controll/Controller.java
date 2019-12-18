@@ -1,7 +1,7 @@
-package Control;
+package controll;
 
-import Model.Database;
-import View.ViewManager;
+import model.Database;
+import view.ViewManager;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

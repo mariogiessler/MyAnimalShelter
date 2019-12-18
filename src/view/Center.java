@@ -1,7 +1,7 @@
-package View;
+package view;
 
-import View.Styles.MyColor;
-import View.Styles.MyFont;
+import view.Styles.MyColor;
+import view.Styles.MyFont;
 
 import javax.swing.*;
 import javax.swing.border.Border;

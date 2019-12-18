@@ -1,8 +1,8 @@
-package View;
+package view;
 
-import Control.Controller;
-import View.Styles.MyColor;
-import View.Styles.MyFont;
+import controll.Controller;
+import view.Styles.MyColor;
+import view.Styles.MyFont;
 
 import javax.swing.*;
 import java.awt.*;

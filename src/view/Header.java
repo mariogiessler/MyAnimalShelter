@@ -1,8 +1,8 @@
-package View;
+package view;
 
-import Control.FrameMoveListener;
-import View.Styles.MyColor;
-import View.Styles.MyFont;
+import controll.FrameMoveListener;
+import view.Styles.MyColor;
+import view.Styles.MyFont;
 
 import javax.swing.*;
 import java.awt.*;
