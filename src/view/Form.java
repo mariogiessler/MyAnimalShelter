@@ -36,7 +36,7 @@ public class Form extends JPanel {
             JPanel rowPanel = new JPanel();
             rowPanel.setOpaque(false);
 
-            JLabel rowLabel = new JLabel((String) position+" :");
+            JLabel rowLabel = new JLabel((String) position + " :");
             rowLabel.setPreferredSize(new Dimension(150, 30));
             rowLabel.setFont(MyFont.MainText.getValue());
             rowLabel.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -60,7 +60,11 @@ public class Form extends JPanel {
 
         JButton formButton = new JButton("einfügen");
         formButton.addActionListener(Controller.getButtonListener());
-        formButton.setSize(150, 50);
+        formButton.setBorder(BorderFactory.createRaisedBevelBorder());
+        formButton.setSize(new Dimension(150, 50));
+        formButton.setFont(Styles.MyFont.ButtonText.getValue());
+        formButton.setBackground(Styles.MyColor.ButtonColor.getValue());
+        formButton.setForeground(Styles.MyColor.HeaderColor.getValue());
         formButton.setLocation(660, 500);
         formButton.setFocusPainted(false);
 

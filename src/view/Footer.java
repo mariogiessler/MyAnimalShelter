@@ -22,6 +22,9 @@ public class Footer extends JPanel {
             button.setBackground(Styles.MyColor.ButtonColor.getValue());
             button.setForeground(Styles.MyColor.HeaderColor.getValue());
             add(button);
+
+            Cursor c = getToolkit().createCustomCursor(new ImageIcon("res/cursor/turtle.png").getImage(), new Point(10, 10), "Cursor");
+            setCursor(c);
         }
     }
 
