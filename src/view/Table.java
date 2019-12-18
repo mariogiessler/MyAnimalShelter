@@ -36,7 +36,7 @@ public class Table extends JTable {
         setBackground(MyColor.CenterColor.getValue());
         instance.getViewport().setOpaque(false);
 
-        Border invisible = BorderFactory.createEmptyBorder(10, 10, 10, 10);
+        Border invisible = BorderFactory.createEmptyBorder(0, 50, 50, 50);
         instance.setOpaque(false);
         instance.setBorder(invisible);
     }

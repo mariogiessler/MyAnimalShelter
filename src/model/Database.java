@@ -10,7 +10,7 @@ import java.util.Iterator;
 
 import static com.mongodb.client.model.Filters.eq;
 
-public class Database {
+public abstract class Database {
     static MongoClient connection = new MongoClient();
     static MongoDatabase db = connection.getDatabase("AnimalShelter");
     static MongoCollection<Document> collection = db.getCollection("Animals");
