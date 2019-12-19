@@ -23,7 +23,7 @@ public class Controller {
                     ViewManager.setCenterTable();
                     break;
                 case "Neues Tierchen":
-                    ViewManager.setCenterForm();
+                    ViewManager.login();
                     break;
                 case "einfügen":
                     if (Database.addAnimal()) {

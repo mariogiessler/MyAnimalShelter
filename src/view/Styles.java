@@ -9,14 +9,22 @@ public class Styles {
     enum MyColor {
         HeaderColor(255, 215, 0),
         CenterColor(240, 240, 200),
+        ValueFieldColor(230, 230, 150, 150),
         ButtonColor(0, 50, 0),
         TextColor(0, 50, 0),
-        BackColor(113, 113, 98);
+        TableHeaderColor(255, 215, 0, 150),
+        TableRowColor(230, 230, 150, 150),
+        ScrollbarColor(255, 215, 0, 150),
+        ScrollbarBackColor(0, 50, 0, 150);
 
         private Color value;
 
         MyColor(int r, int g, int b) {
             value = new Color(r, g, b);
+        }
+
+        MyColor(int r, int g, int b, int a) {
+            value = new Color(r, g, b, a);
         }
 
         Color getValue() {
@@ -27,9 +35,10 @@ public class Styles {
     enum MyFont {
         HeadText("Vanilla", Font.ITALIC, 40),
         SubText("Quicksand-Bold", Font.BOLD, 20),
+        LabelText("Quicksand-Bold", Font.BOLD, 24),
         ButtonText("Quicksand-Bold", Font.BOLD, 20),
         MainText("Quicksand-Regular", Font.PLAIN, 24),
-        TableHeadText("Quicksand-Bold", Font.ITALIC, 26),
+        TableHeadText("Quicksand-Bold", Font.ITALIC, 20),
         TableMainText("Quicksand-Regular", Font.PLAIN, 20);
 
         private Font value;

@@ -3,11 +3,29 @@ package view;
 import javax.swing.*;
 import java.awt.*;
 
-public abstract class Welcome extends JPanel {
-    private static JPanel centerContent = new JPanel();
-    private static JPanel centerImages = new JPanel();
+public class Welcome extends JPanel {
+    public static Welcome welcome;
 
-    public static JPanel getCenterContent() {
+    private Welcome() {
+        centerImages();
+        centerContent();
+    }
+
+    private static void centerImages() {
+        JPanel centerImages = new JPanel();
+        centerImages.setLayout(new GridLayout(1, 4));
+        centerImages.setOpaque(false);
+        centerImages.add(new JLabel(AnimalPic.getCat()));
+        centerImages.add(new JLabel(AnimalPic.getMouse()));
+        centerImages.add(new JLabel(AnimalPic.getGiraffe()));
+        centerImages.add(new JLabel(AnimalPic.getChamaeleon()));
+        centerImages.setBorder(BorderFactory.createEmptyBorder(50, 50, 50, 50));
+
+        Center.getInstance().add(centerImages, BorderLayout.PAGE_START);
+    }
+
+    private static void centerContent() {
+        JPanel centerContent = new JPanel();
         centerContent.setLayout(new GridLayout(10, 1));
         centerContent.setOpaque(false);
 
@@ -29,18 +47,14 @@ public abstract class Welcome extends JPanel {
         centerContent.add(text1);
         centerContent.add(text2);
 
-        return centerContent;
+        Center.getInstance().add(centerContent, BorderLayout.PAGE_END);
     }
 
-    public static JPanel getCenterImages() {
-        centerImages.setLayout(new GridLayout(1, 4));
-        centerImages.setOpaque(false);
-        centerImages.add(new JLabel(AnimalPic.getCat()));
-        centerImages.add(new JLabel(AnimalPic.getMouse()));
-        centerImages.add(new JLabel(AnimalPic.getGiraffe()));
-        centerImages.add(new JLabel(AnimalPic.getChamaeleon()));
-
-        return centerImages;
+    public static Welcome getInstance() {
+        if (welcome == null) {
+            welcome = new Welcome();
+        }
+        return welcome;
     }
 }
 

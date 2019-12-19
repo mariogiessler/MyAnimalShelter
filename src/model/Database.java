@@ -22,12 +22,14 @@ public abstract class Database {
     public static boolean addAnimal() {
         Document animal = new Document(formValues);
         Document doc = collection.find(eq("tiername", animal.get("tiername"))).first();
-        if (doc != null) {
-            return false;
-        } else {
-            collection.insertOne(animal);
-            return true;
-        }
+        if (animal.get("tiername") == null || animal.get("tierart") == null) {
+			return false;
+		} else if (doc != null) {
+			return false;
+		} else {
+			collection.insertOne(animal);
+			return true;
+		}
     }
 
     public static Object[][] getAnimals() {

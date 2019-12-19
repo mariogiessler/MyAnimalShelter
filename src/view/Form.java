@@ -2,6 +2,7 @@ package view;
 
 import controll.Controller;
 import view.Styles.MyFont;
+import view.Styles.MyColor;
 
 import javax.swing.*;
 import java.awt.*;
@@ -51,6 +52,8 @@ public class Form extends JPanel {
             rowField.setFont(MyFont.MainText.getValue());
             rowField.setName(((String) position).trim().toLowerCase());
             rowField.addFocusListener(Controller.getFieldListener());
+            rowField.setBackground(MyColor.ValueFieldColor.getValue());
+            rowField.setBorder(BorderFactory.createLoweredBevelBorder());
 
             rowPanel.add(rowField);
             formFields.add(rowField);
