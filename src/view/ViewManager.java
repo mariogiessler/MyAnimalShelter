@@ -41,11 +41,11 @@ public class ViewManager {
         label.setFont(MyFont.SubText.getValue());
         label.setHorizontalAlignment(SwingConstants.CENTER);
 
+        new Table();
 
         Center.getInstance().add(label, BorderLayout.PAGE_START);
+        Center.getInstance().add(Table.getInstance());
 
-        Center.getInstance().add(Table.getInstance().getScrollPane(), BorderLayout.CENTER);
-        window.repaint();
         window.revalidate();
     }
 
