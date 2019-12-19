@@ -1,4 +1,8 @@
-package view;
+package view.sites;
+
+import view.styles.AnimalPic;
+import view.styles.MyLabel;
+import view.styles.Styles.MyFont;
 
 import javax.swing.*;
 import java.awt.*;
@@ -33,16 +37,14 @@ public class Welcome extends JPanel {
         JLabel text1 = new JLabel("die alle ein neues Zuhause suchen.");
         JLabel text2 = new JLabel("Für alle adoptierten Lieblinge gibt es Tierarztbesuche gratis auf Lebenszeit.");
 
-        text.setFont(Styles.MyFont.MainText.getValue());
-        text1.setFont(Styles.MyFont.MainText.getValue());
-        text2.setFont(Styles.MyFont.MainText.getValue());
+        text.setFont(MyFont.MainText.getValue());
+        text1.setFont(MyFont.MainText.getValue());
+        text2.setFont(MyFont.MainText.getValue());
         text.setHorizontalAlignment(SwingConstants.CENTER);
         text1.setHorizontalAlignment(SwingConstants.CENTER);
         text2.setHorizontalAlignment(SwingConstants.CENTER);
 
-        centerContent.add(new JLabel());
-        centerContent.add(new JLabel());
-        centerContent.add(new JLabel());
+        centerContent.add(new MyLabel());
         centerContent.add(text);
         centerContent.add(text1);
         centerContent.add(text2);

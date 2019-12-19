@@ -1,8 +1,11 @@
-package view;
+package view.sites;
 
 import controll.Controller;
-import view.Styles.MyFont;
-import view.Styles.MyColor;
+import view.styles.MyButton;
+import view.styles.MyLabel;
+import view.styles.MyTextField;
+import view.styles.Styles.MyBorder;
+import view.styles.Styles.MyFont;
 
 import javax.swing.*;
 import java.awt.*;
@@ -37,39 +40,25 @@ public class Form extends JPanel {
             JPanel rowPanel = new JPanel();
             rowPanel.setOpaque(false);
 
-            JLabel rowLabel = new JLabel((String) position + " :");
-            rowLabel.setPreferredSize(new Dimension(150, 30));
-            rowLabel.setFont(MyFont.MainText.getValue());
-            rowLabel.setHorizontalAlignment(SwingConstants.RIGHT);
-            rowPanel.add(rowLabel);
-
-            JLabel blankLabel = new JLabel();
-            blankLabel.setPreferredSize(new Dimension(50, 30));
-            rowPanel.add(blankLabel);
-
-            JTextField rowField = new JTextField();
-            rowField.setPreferredSize(new Dimension(300, 30));
-            rowField.setFont(MyFont.MainText.getValue());
+            MyLabel rowLabel = new MyLabel((String) position + " :");
+            MyLabel blankLabel = new MyLabel();
+            MyTextField rowField = new MyTextField();
             rowField.setName(((String) position).trim().toLowerCase());
             rowField.addFocusListener(Controller.getFieldListener());
-            rowField.setBackground(MyColor.ValueFieldColor.getValue());
-            rowField.setBorder(BorderFactory.createLoweredBevelBorder());
+            rowField.setBorder(MyBorder.LoweredBorder.getValue());
 
+            rowPanel.add(rowLabel);
+            rowPanel.add(blankLabel);
             rowPanel.add(rowField);
             formFields.add(rowField);
 
             formCenter.add(rowPanel);
         }
 
-        JButton formButton = new JButton("einfügen");
-        formButton.addActionListener(Controller.getButtonListener());
-        formButton.setBorder(BorderFactory.createRaisedBevelBorder());
+        MyButton formButton = new MyButton("einfügen");
         formButton.setSize(new Dimension(150, 50));
-        formButton.setFont(Styles.MyFont.ButtonText.getValue());
-        formButton.setBackground(Styles.MyColor.ButtonColor.getValue());
-        formButton.setForeground(Styles.MyColor.HeaderColor.getValue());
-        formButton.setLocation(660, 500);
-        formButton.setFocusPainted(false);
+        formButton.setLocation(665, 470);
+
 
         add(formHeader);
         add(formCenter);

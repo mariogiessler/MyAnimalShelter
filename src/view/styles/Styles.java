@@ -1,15 +1,18 @@
-package view;
+package view.styles;
 
+import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
 public class Styles {
 
-    enum MyColor {
+    public enum MyColor {
         HeaderColor(255, 215, 0),
         CenterColor(240, 240, 200),
-        ValueFieldColor(230, 230, 150, 150),
+        PopUpColor(240, 240, 200,150),
+        ValueFieldColor(250, 250, 195),
         ButtonColor(0, 50, 0),
         TextColor(0, 50, 0),
         TableHeaderColor(255, 215, 0, 150),
@@ -27,13 +30,14 @@ public class Styles {
             value = new Color(r, g, b, a);
         }
 
-        Color getValue() {
+        public Color getValue() {
             return value;
         }
     }
 
-    enum MyFont {
+    public enum MyFont {
         HeadText("Vanilla", Font.ITALIC, 40),
+        PopUpText("Vanilla", Font.PLAIN, 20),
         SubText("Quicksand-Bold", Font.BOLD, 20),
         LabelText("Quicksand-Bold", Font.BOLD, 24),
         ButtonText("Quicksand-Bold", Font.BOLD, 20),
@@ -63,10 +67,28 @@ public class Styles {
             value = new Font(name, style, size);
         }
 
-        Font getValue() {
+        public Font getValue() {
             return value;
         }
     }
 
+    public enum MyBorder {
+        LoweredBorder(BorderFactory.createLoweredBevelBorder()),
+        CompountBorder(BorderFactory.createCompoundBorder(BorderFactory.createRaisedBevelBorder(), BorderFactory.createLoweredBevelBorder())),
+        InvisibleBorder(BorderFactory.createEmptyBorder(25, 25, 25, 25)),
+        DoubleCompountBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(25, 25, 25, 25), BorderFactory.createCompoundBorder(BorderFactory.createRaisedBevelBorder(), BorderFactory.createLoweredBevelBorder()))),
+        HeadBorder(BorderFactory.createEmptyBorder(20, 0, 20, 0)),
+        PopUpBorder( BorderFactory.createCompoundBorder(BorderFactory.createRaisedBevelBorder(),BorderFactory.createEmptyBorder(20, 20, 20, 20)));
 
+        private Border value;
+
+        MyBorder(Border BorderName) {
+            value = BorderName;
+        }
+
+        public Border getValue() {
+            return value;
+        }
+
+    }
 }

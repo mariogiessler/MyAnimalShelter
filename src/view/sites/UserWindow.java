@@ -1,4 +1,4 @@
-package view;
+package view.sites;
 
 import javax.swing.*;
 import java.awt.*;

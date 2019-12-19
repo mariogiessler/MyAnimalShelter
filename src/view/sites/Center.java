@@ -1,9 +1,9 @@
-package view;
+package view.sites;
 
-import view.Styles.MyColor;
+import view.styles.Styles.MyBorder;
+import view.styles.Styles.MyColor;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 
 public class Center extends JPanel {
@@ -13,12 +13,7 @@ public class Center extends JPanel {
     private Center() {
         setLayout(new BorderLayout());
         setBackground(MyColor.CenterColor.getValue());
-        Border raised = BorderFactory.createRaisedBevelBorder();
-        Border lowered = BorderFactory.createLoweredBevelBorder();
-        Border compound = BorderFactory.createCompoundBorder(raised, lowered);
-        Border invisible = BorderFactory.createEmptyBorder(25, 25, 25, 25);
-        Border border = BorderFactory.createCompoundBorder(invisible, compound);
-        setBorder(border);
+        setBorder(MyBorder.DoubleCompountBorder.getValue());
 
         Cursor c = getToolkit().createCustomCursor(new ImageIcon("res/cursor/turtle.png").getImage(), new Point(0, 0), "Cursor");
         setCursor(c);

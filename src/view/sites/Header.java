@@ -1,8 +1,9 @@
-package view;
+package view.sites;
 
 import controll.FrameMoveListener;
-import view.Styles.MyColor;
-import view.Styles.MyFont;
+import view.styles.Styles.MyBorder;
+import view.styles.Styles.MyColor;
+import view.styles.Styles.MyFont;
 
 import javax.swing.*;
 import java.awt.*;
@@ -29,7 +30,7 @@ public class Header extends JPanel {
         welcome.setFont(MyFont.HeadText.getValue());
         welcome.setForeground(MyColor.TextColor.getValue());
         welcome.setHorizontalAlignment(SwingConstants.CENTER);
-        welcome.setBorder(BorderFactory.createEmptyBorder(20, 0, 20, 0));
+        welcome.setBorder(MyBorder.HeadBorder.getValue());
 
         add(welcome, BorderLayout.PAGE_START);
 

@@ -1,4 +1,4 @@
-package view;
+package view.styles;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;

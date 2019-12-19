@@ -1,11 +1,11 @@
-package view;
+package view.sites;
 
 import model.Database;
-import view.Styles.MyColor;
-import view.Styles.MyFont;
+import view.styles.Styles.MyBorder;
+import view.styles.Styles.MyColor;
+import view.styles.Styles.MyFont;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import javax.swing.plaf.basic.BasicScrollBarUI;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableCellRenderer;
@@ -19,7 +19,7 @@ public class Table extends JTable {
         super(Database.getAnimals(), Form.getFormLabels());
 
         JLabel label = new JLabel("Alle Tierchen in der Übersicht:");
-        label.setPreferredSize(new Dimension(600,70));
+        label.setPreferredSize(new Dimension(600, 70));
         label.setBackground(MyColor.CenterColor.getValue());
         label.setFont(MyFont.LabelText.getValue());
         label.setHorizontalAlignment(SwingConstants.CENTER);
@@ -57,8 +57,7 @@ public class Table extends JTable {
 
         instance.setBackground(MyColor.CenterColor.getValue());
 
-        Border invisible = BorderFactory.createEmptyBorder(0, 50, 50, 50);
-        instance.setBorder(invisible);
+        instance.setBorder(MyBorder.InvisibleBorder.getValue());
 
         setOpaque(false);
         instance.setOpaque(false);
@@ -91,6 +90,6 @@ public class Table extends JTable {
                 ((JLabel) c).setHorizontalAlignment(SwingConstants.CENTER);
             }
             return c;
-        };
+        }
     }
 }
