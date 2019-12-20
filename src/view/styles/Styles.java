@@ -78,7 +78,7 @@ public class Styles {
         InvisibleBorder(BorderFactory.createEmptyBorder(25, 25, 25, 25)),
         DoubleCompountBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(25, 25, 25, 25), BorderFactory.createCompoundBorder(BorderFactory.createRaisedBevelBorder(), BorderFactory.createLoweredBevelBorder()))),
         HeadBorder(BorderFactory.createEmptyBorder(20, 0, 20, 0)),
-        PopUpBorder( BorderFactory.createCompoundBorder(BorderFactory.createRaisedBevelBorder(),BorderFactory.createEmptyBorder(20, 20, 20, 20)));
+        MessageBorder( BorderFactory.createCompoundBorder(BorderFactory.createRaisedBevelBorder(),BorderFactory.createEmptyBorder(20, 20, 20, 20)));
 
         private Border value;
 

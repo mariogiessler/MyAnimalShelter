@@ -2,7 +2,9 @@ package controll;
 
 import model.Database;
 import view.ViewManager;
-import view.sites.Login;
+import view.messages.MyFailMessage;
+import view.messages.MyLogin;
+import view.sites.UserWindow;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -22,6 +24,7 @@ public class Controller {
         @Override
         public void actionPerformed(ActionEvent e) {
             String title = ((JButton) e.getSource()).getText();
+            String name = ((JButton) e.getSource()).getName();
             switch (title) {
                 case "Beenden":
                     System.exit(0);
@@ -30,10 +33,16 @@ public class Controller {
                     ViewManager.setCenterTable();
                     break;
                 case "Neues Tierchen":
-                    ViewManager.login();
+                    ViewManager.setCenterForm();
                     break;
+                case "OK":
+                    if(name.equals("failMessage")){
+MyFailMessage.getInstance().dispose();
+                    }
+                    break;
+
                 case "Abbr.":
-                    Login.getInstance().dispose();
+                    MyLogin.getInstance().dispose();
                     break;
                 case "einfügen":
                     if (Database.addAnimal()) {

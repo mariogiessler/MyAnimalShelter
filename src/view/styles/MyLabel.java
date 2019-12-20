@@ -4,6 +4,7 @@ import view.styles.Styles;
 
 import javax.swing.*;
 import java.awt.*;
+import view.styles.Styles.MyColor;
 
 public class MyLabel extends JLabel {
 
@@ -15,6 +16,7 @@ public class MyLabel extends JLabel {
         super(text);
         setPreferredSize(new Dimension(150, 30));
         setFont(Styles.MyFont.MainText.getValue());
-        setHorizontalAlignment(SwingConstants.RIGHT);
+        setForeground(MyColor.TextColor.getValue());
+        setHorizontalAlignment(SwingConstants.CENTER);
     }
 }

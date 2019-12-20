@@ -1,5 +1,8 @@
 package view;
 
+import view.messages.MyDialog;
+import view.messages.MyFailMessage;
+import view.messages.MyLogin;
 import view.sites.*;
 
 import javax.swing.*;
@@ -40,7 +43,7 @@ public class ViewManager {
     }
 
     public static void login(){
-        Login.getInstance();
+        MyLogin.getInstance();
     }
 
     private static void setFooter() {
@@ -66,6 +69,6 @@ public class ViewManager {
     }
 
     public static void displayFail() {
-        JOptionPane.showMessageDialog(window, "Das hat leider nicht funktioniert.");
+        MyFailMessage.getInstance().setVisible(true);
     }
 }

@@ -41,6 +41,7 @@ public class Form extends JPanel {
             rowPanel.setOpaque(false);
 
             MyLabel rowLabel = new MyLabel((String) position + " :");
+            rowLabel.setHorizontalAlignment(SwingConstants.RIGHT);
             MyLabel blankLabel = new MyLabel();
             MyTextField rowField = new MyTextField();
             rowField.setName(((String) position).trim().toLowerCase());
