@@ -82,6 +82,8 @@ public class Form extends JPanel {
     public static Form getInstance() {
         if (form == null) {
             form = new Form();
+        }else if (!form.isValid()) {
+            new Form();
         }
         return form;
     }

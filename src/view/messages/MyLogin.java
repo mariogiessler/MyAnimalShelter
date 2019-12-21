@@ -12,6 +12,8 @@ import java.awt.*;
 
 public class MyLogin extends MyDialog {
     private static MyLogin login;
+    private static MyTextField name;
+    private static JPasswordField pass;
 
     private MyLogin() {
         super("Ameldung zur Datenbank !");
@@ -26,17 +28,16 @@ public class MyLogin extends MyDialog {
         MyLabel nameLabel = new MyLabel("Benutzername :");
         nameLabel.setPreferredSize(new Dimension(200, 30));
         nameLabel.setHorizontalAlignment(SwingConstants.RIGHT);
-        MyTextField name = new MyTextField();
+        name = new MyTextField();
         rowOne.add(nameLabel);
         rowOne.add(name);
 
         MyLabel passLabel = new MyLabel("Passwort :");
         passLabel.setPreferredSize(new Dimension(200, 30));
         passLabel.setHorizontalAlignment(SwingConstants.RIGHT);
-        JPasswordField pass = new JPasswordField();
+        pass = new JPasswordField();
         pass.setPreferredSize(new Dimension(300, 30));
         pass.setFont(Styles.MyFont.MainText.getValue());
-        pass.addFocusListener(Controller.getFieldListener());
         pass.setBackground(Styles.MyColor.ValueFieldColor.getValue());
         rowTwo.add(passLabel);
         rowTwo.add(pass);
@@ -58,8 +59,6 @@ public class MyLogin extends MyDialog {
         confirmButton.setName("loginOK");
         getButton().add(confirmButton);
         getButton().add(cancelButton);
-        revalidate();
-        repaint();
     }
 
     public static MyLogin getInstance() {
@@ -71,5 +70,9 @@ public class MyLogin extends MyDialog {
 
     public static void removeLogin() {
         login = null;
+    }
+
+    public static String[] returnLoginData(){
+        return new String[]{name.getText(), String.valueOf(pass.getPassword())};
     }
 }

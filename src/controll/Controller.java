@@ -3,9 +3,9 @@ package controll;
 import model.Database;
 import view.ViewManager;
 import view.messages.MyConfirmMessage;
-import view.messages.MyFailMessage;
+import view.messages.MyLoginFailMessage;
+import view.messages.MyNewInputFailMessage;
 import view.messages.MyLogin;
-import view.sites.UserWindow;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -38,17 +38,30 @@ public class Controller {
                     ViewManager.setCenterTable();
                     break;
                 case "newInput":
-                    ViewManager.login();
+                    ViewManager.displayLogin();
                     break;
                 case "failOK":
-                    MyFailMessage.getInstance().dispose();
-                    MyFailMessage.removeMessage();
+                    MyNewInputFailMessage.getInstance().dispose();
+                    MyNewInputFailMessage.removeMessage();
                     break;
                 case "confirmOK":
                     MyConfirmMessage.getInstance().dispose();
                     MyConfirmMessage.removeMessage();
                     break;
 
+                case "loginOK":
+                    if (Database.authorize() ){
+                        MyLogin.getInstance().dispose();
+                        MyLogin.removeLogin();
+                        ViewManager.setCenterForm();
+                    } else {
+                        ViewManager.displayLoginFail();
+                    }
+                    break;
+                case "loginFailOK":
+                    MyLoginFailMessage.getInstance().dispose();
+                    MyLoginFailMessage.removeMessage();
+                    break;
                 case "loginCancel":
                     MyLogin.getInstance().dispose();
                     MyLogin.removeLogin();

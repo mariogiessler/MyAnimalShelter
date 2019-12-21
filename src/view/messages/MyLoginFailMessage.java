@@ -10,19 +10,19 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
-public class MyFailMessage extends MyMessage {
+public class MyLoginFailMessage extends MyMessage {
 
-    private static MyFailMessage failMessage;
+    private static MyLoginFailMessage loginFailMessage;
 
-    private MyFailMessage() {
+    private MyLoginFailMessage() {
         super("Es ist ein Fehler aufgetreten !");
 
-        MyLabel message1 = new MyLabel("Das Tier konnte nicht zur Datenbank");
+        MyLabel message1 = new MyLabel("Sie haben die falschen");
         message1.setPreferredSize(new Dimension(430, 30));
         message1.setFont(MyFont.PopUpText.getValue());
         getRowOne().add(message1);
 
-        MyLabel message2 = new MyLabel("hinzugefügt gefügt werden!");
+        MyLabel message2 = new MyLabel("Login Daten angegeben!");
         message2.setPreferredSize(new Dimension(430, 30));
         message2.setFont(MyFont.PopUpText.getValue());
         getRowTwo().add(message2);
@@ -38,19 +38,19 @@ public class MyFailMessage extends MyMessage {
         getImage().add(new JLabel(new ImageIcon(img)));
 
         MyButton confirm = new MyButton("OK");
-        confirm.setName("failOK");
+        confirm.setName("loginFailOK");
         getButton().add(confirm);
     }
 
-    public static MyFailMessage getInstance() {
-        if (failMessage == null) {
-            failMessage = new MyFailMessage();
+    public static MyLoginFailMessage getInstance() {
+        if (loginFailMessage == null) {
+            loginFailMessage = new MyLoginFailMessage();
         }
-        return failMessage;
+        return loginFailMessage;
     }
 
     public static void removeMessage() {
-        failMessage = null;
+        loginFailMessage = null;
     }
 
 }

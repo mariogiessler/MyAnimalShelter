@@ -1,7 +1,8 @@
 package view;
 
 import view.messages.MyConfirmMessage;
-import view.messages.MyFailMessage;
+import view.messages.MyLoginFailMessage;
+import view.messages.MyNewInputFailMessage;
 import view.messages.MyLogin;
 import view.sites.*;
 
@@ -48,7 +49,7 @@ public class ViewManager {
         window.revalidate();
     }
 
-    public static void login() {
+    public static void displayLogin() {
         MyLogin.getInstance();
     }
 
@@ -76,6 +77,8 @@ public class ViewManager {
     }
 
     public static void displayFail() {
-        MyFailMessage.getInstance();
+        MyNewInputFailMessage.getInstance();
     }
+    public static void displayLoginFail(){
+        MyLoginFailMessage.getInstance();}
 }

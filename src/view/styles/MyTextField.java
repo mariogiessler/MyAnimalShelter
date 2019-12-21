@@ -10,7 +10,6 @@ public class MyTextField extends JTextField {
     public MyTextField(){
         setPreferredSize(new Dimension(300, 30));
         setFont(Styles.MyFont.MainText.getValue());
-        addFocusListener(Controller.getFieldListener());
         setBackground(Styles.MyColor.ValueFieldColor.getValue());
     }
 }
