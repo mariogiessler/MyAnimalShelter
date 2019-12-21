@@ -29,7 +29,7 @@ public class Controller {
             System.out.println(name);
             switch (name) {
                 case "home":
-                    ViewManager.home();
+                    ViewManager.setHome();
                     break;
                 case "exit":
                     System.exit(0);
@@ -74,6 +74,9 @@ public class Controller {
                     } else {
                         ViewManager.displayFail();
                     }
+                    break;
+                case "logout":
+                    ViewManager.setHome();
                     break;
             }
         }

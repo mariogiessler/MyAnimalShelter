@@ -43,7 +43,7 @@ public class ViewManager {
         window.revalidate();
     }
 
-    public static void home(){
+    public static void setHome(){
         Center.getInstance().removeAll();
         Welcome.getInstance();
         window.revalidate();

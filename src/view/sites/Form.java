@@ -61,10 +61,16 @@ public class Form extends JPanel {
         formButton.setSize(new Dimension(150, 50));
         formButton.setLocation(665, 470);
 
+        MyButton logoutButton = new MyButton("abmelden");
+        logoutButton.setName("logout");
+        logoutButton.setSize(new Dimension(150, 50));
+        logoutButton.setLocation(980, 510);
+
 
         add(formHeader);
         add(formCenter);
         add(formButton);
+        add(logoutButton);
     }
 
     public static ArrayList<JTextField> getFormFields() {
