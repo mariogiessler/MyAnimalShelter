@@ -8,8 +8,6 @@ import org.bson.Document;
 import java.util.HashMap;
 import java.util.Iterator;
 
-import static com.mongodb.client.model.Filters.eq;
-
 public abstract class Database {
     static MongoClient connection = new MongoClient();
     static MongoDatabase db = connection.getDatabase("AnimalShelter");
@@ -21,15 +19,15 @@ public abstract class Database {
 
     public static boolean addAnimal() {
         Document animal = new Document(formValues);
-        Document doc = collection.find(eq("tiername", animal.get("tiername"))).first();
+//        Document doc = collection.find(eq("tiername", animal.get("tiername"))).first();
         if (animal.get("tiername") == null || animal.get("tierart") == null) {
-			return false;
-		} else if (doc != null) {
-			return false;
-		} else {
-			collection.insertOne(animal);
-			return true;
-		}
+            return false;
+//        } else if (doc != null) {
+//            return false;
+        } else {
+            collection.insertOne(animal);
+            return true;
+        }
     }
 
     public static Object[][] getAnimals() {

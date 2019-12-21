@@ -37,7 +37,7 @@ public class Styles {
 
     public enum MyFont {
         HeadText("Vanilla", Font.ITALIC, 40),
-        PopUpText("Vanilla", Font.PLAIN, 20),
+        PopUpText("Quicksand-Regular", Font.PLAIN, 20),
         SubText("Quicksand-Bold", Font.BOLD, 20),
         LabelText("Quicksand-Bold", Font.BOLD, 24),
         ButtonText("Quicksand-Bold", Font.BOLD, 20),
@@ -74,11 +74,11 @@ public class Styles {
 
     public enum MyBorder {
         LoweredBorder(BorderFactory.createLoweredBevelBorder()),
-        CompountBorder(BorderFactory.createCompoundBorder(BorderFactory.createRaisedBevelBorder(), BorderFactory.createLoweredBevelBorder())),
         InvisibleBorder(BorderFactory.createEmptyBorder(25, 25, 25, 25)),
+         PopUpInvisibleBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5)),
         DoubleCompountBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(25, 25, 25, 25), BorderFactory.createCompoundBorder(BorderFactory.createRaisedBevelBorder(), BorderFactory.createLoweredBevelBorder()))),
         HeadBorder(BorderFactory.createEmptyBorder(20, 0, 20, 0)),
-        MessageBorder( BorderFactory.createCompoundBorder(BorderFactory.createRaisedBevelBorder(),BorderFactory.createEmptyBorder(20, 20, 20, 20)));
+        MessageBorder( BorderFactory.createCompoundBorder(BorderFactory.createRaisedBevelBorder(),BorderFactory.createEmptyBorder(10, 10, 10, 10)));
 
         private Border value;
 

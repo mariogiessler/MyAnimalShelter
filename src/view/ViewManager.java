@@ -1,6 +1,6 @@
 package view;
 
-import view.messages.MyDialog;
+import view.messages.MyConfirmMessage;
 import view.messages.MyFailMessage;
 import view.messages.MyLogin;
 import view.sites.*;
@@ -42,7 +42,13 @@ public class ViewManager {
         window.revalidate();
     }
 
-    public static void login(){
+    public static void home(){
+        Center.getInstance().removeAll();
+        Welcome.getInstance();
+        window.revalidate();
+    }
+
+    public static void login() {
         MyLogin.getInstance();
     }
 
@@ -65,10 +71,11 @@ public class ViewManager {
     }
 
     public static void displayConfirm() {
-        JOptionPane.showMessageDialog(window, "Tier wurde erfolgreich hinzugefügt!");
+        MyConfirmMessage.getInstance().validate();
+        MyConfirmMessage.getInstance().setVisible(true);
     }
 
     public static void displayFail() {
-        MyFailMessage.getInstance().setVisible(true);
+        MyFailMessage.getInstance();
     }
 }

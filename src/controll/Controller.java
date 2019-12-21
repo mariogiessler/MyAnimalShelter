@@ -2,6 +2,7 @@ package controll;
 
 import model.Database;
 import view.ViewManager;
+import view.messages.MyConfirmMessage;
 import view.messages.MyFailMessage;
 import view.messages.MyLogin;
 import view.sites.UserWindow;
@@ -25,26 +26,34 @@ public class Controller {
         public void actionPerformed(ActionEvent e) {
             String title = ((JButton) e.getSource()).getText();
             String name = ((JButton) e.getSource()).getName();
-            switch (title) {
-                case "Beenden":
+            System.out.println(name);
+            switch (name) {
+                case "home":
+                    ViewManager.home();
+                    break;
+                case "exit":
                     System.exit(0);
                     break;
-                case "Übersicht":
+                case "tableView":
                     ViewManager.setCenterTable();
                     break;
-                case "Neues Tierchen":
-                    ViewManager.setCenterForm();
+                case "newInput":
+                    ViewManager.login();
                     break;
-                case "OK":
-                    if(name.equals("failMessage")){
-MyFailMessage.getInstance().dispose();
-                    }
+                case "failOK":
+                    MyFailMessage.getInstance().dispose();
+                    MyFailMessage.removeMessage();
+                    break;
+                case "confirmOK":
+                    MyConfirmMessage.getInstance().dispose();
+                    MyConfirmMessage.removeMessage();
                     break;
 
-                case "Abbr.":
+                case "loginCancel":
                     MyLogin.getInstance().dispose();
+                    MyLogin.removeLogin();
                     break;
-                case "einfügen":
+                case "formAdd":
                     if (Database.addAnimal()) {
                         Database.clearFormValues();
                         ViewManager.clearForm();
@@ -80,9 +89,9 @@ MyFailMessage.getInstance().dispose();
         return moveListener;
     }
 
-    public static Controller getInstance(){
-        if(controller==null){
-            controller=new Controller();
+    public static Controller getInstance() {
+        if (controller == null) {
+            controller = new Controller();
         }
         return controller;
     }

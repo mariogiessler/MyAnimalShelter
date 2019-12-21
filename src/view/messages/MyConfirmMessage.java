@@ -10,47 +10,47 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
-public class MyFailMessage extends MyMessage {
+public class MyConfirmMessage extends MyMessage {
 
-    private static MyFailMessage failMessage;
+    private static MyConfirmMessage confirmMessage;
 
-    private MyFailMessage() {
-        super("Es ist ein Fehler aufgetreten !");
+    private MyConfirmMessage() {
+        super("Das war Erfolgreich !");
 
-        MyLabel message1 = new MyLabel("Das Tier konnte nicht zur Datenbank");
+        MyLabel message1 = new MyLabel("Das Tier wurde zur");
         message1.setPreferredSize(new Dimension(430, 30));
         message1.setFont(MyFont.PopUpText.getValue());
         getRowOne().add(message1);
 
-        MyLabel message2 = new MyLabel("hinzugefügt gefügt werden!");
+        MyLabel message2 = new MyLabel("Datenbank hinzugefügt!");
         message2.setPreferredSize(new Dimension(430, 30));
         message2.setFont(MyFont.PopUpText.getValue());
         getRowTwo().add(message2);
 
         Image img = null;
         try {
-            img = ImageIO.read(new File("res/pics/cat.png"));
+            img = ImageIO.read(new File("res/pics/giraffe.png"));
         } catch (IOException e) {
 
         }
-        img = img.getScaledInstance(94, 110, Image.SCALE_SMOOTH);
+        img = img.getScaledInstance(80, 110, Image.SCALE_SMOOTH);
 
         getImage().add(new JLabel(new ImageIcon(img)));
 
         MyButton confirm = new MyButton("OK");
-        confirm.setName("failOK");
+        confirm.setName("confirmOK");
         getButton().add(confirm);
     }
 
-    public static MyFailMessage getInstance() {
-        if (failMessage == null) {
-            failMessage = new MyFailMessage();
+    public static MyConfirmMessage getInstance() {
+        if (confirmMessage == null) {
+            confirmMessage = new MyConfirmMessage();
         }
-        return failMessage;
+        return confirmMessage;
     }
 
     public static void removeMessage() {
-        failMessage = null;
+        confirmMessage = null;
     }
 
 }

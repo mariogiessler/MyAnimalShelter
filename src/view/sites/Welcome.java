@@ -55,6 +55,8 @@ public class Welcome extends JPanel {
     public static Welcome getInstance() {
         if (welcome == null) {
             welcome = new Welcome();
+        }else if (!welcome.isValid()) {
+            new Welcome();
         }
         return welcome;
     }

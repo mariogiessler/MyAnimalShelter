@@ -57,6 +57,7 @@ public class Form extends JPanel {
         }
 
         MyButton formButton = new MyButton("einfügen");
+        formButton.setName("formAdd");
         formButton.setSize(new Dimension(150, 50));
         formButton.setLocation(665, 470);
 
