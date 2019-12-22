@@ -54,8 +54,8 @@ public class Header extends JPanel {
         }).start();
 
 
-        addMouseMotionListener(FrameMoveListener.instance);
-        addMouseListener(FrameMoveListener.instance);
+        addMouseMotionListener(FrameMoveListener.getInstance());
+        addMouseListener(FrameMoveListener.getInstance());
     }
 
 

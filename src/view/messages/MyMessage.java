@@ -5,7 +5,11 @@ import view.styles.Styles.MyBorder;
 import javax.swing.*;
 import java.awt.*;
 
-public class MyMessage extends MyDialog {
+// parent for all messages without input
+// i chose a package visibility, because i wont refer this class to any others, except childrens
+
+class MyMessage extends MyDialog {
+
     private JPanel rowOne, rowTwo, image;
 
     MyMessage(String title) {
@@ -33,6 +37,7 @@ public class MyMessage extends MyDialog {
         getContent().add(grid);
     }
 
+    // getter for all messages without input
     JPanel getImage() {
         return image;
     }

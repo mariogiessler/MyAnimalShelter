@@ -10,6 +10,10 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
+// custom failmessage for loginmessage
+// The reffered Object is designed in a singleton way
+
+
 public class MyLoginFailMessage extends MyMessage {
 
     private static MyLoginFailMessage loginFailMessage;
@@ -27,6 +31,7 @@ public class MyLoginFailMessage extends MyMessage {
         message2.setFont(MyFont.PopUpText.getValue());
         getRowTwo().add(message2);
 
+        // image for this message
         Image img = null;
         try {
             img = ImageIO.read(new File("res/pics/cat.png"));
@@ -42,6 +47,7 @@ public class MyLoginFailMessage extends MyMessage {
         getButton().add(confirm);
     }
 
+    // singleton: to make only one instance of this object possible
     public static MyLoginFailMessage getInstance() {
         if (loginFailMessage == null) {
             loginFailMessage = new MyLoginFailMessage();
@@ -49,6 +55,8 @@ public class MyLoginFailMessage extends MyMessage {
         return loginFailMessage;
     }
 
+    // remove this messageframe to be ready for the garbage
+    // to show message in a further way
     public static void removeMessage() {
         loginFailMessage = null;
     }

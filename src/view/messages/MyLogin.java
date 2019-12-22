@@ -1,6 +1,5 @@
 package view.messages;
 
-import controll.Controller;
 import view.styles.MyButton;
 import view.styles.MyLabel;
 import view.styles.MyTextField;
@@ -10,7 +9,11 @@ import view.styles.Styles.MyBorder;
 import javax.swing.*;
 import java.awt.*;
 
+// custom loginmessage
+// The reffered Object is designed in a singleton way
+
 public class MyLogin extends MyDialog {
+
     private static MyLogin login;
     private static MyTextField name;
     private static JPasswordField pass;
@@ -43,7 +46,7 @@ public class MyLogin extends MyDialog {
         rowTwo.add(pass);
 
         JPanel content = new JPanel();
-        content.setLayout(new GridLayout(3,1));
+        content.setLayout(new GridLayout(3, 1));
         content.add(headLine);
         content.add(rowOne);
         content.add(rowTwo);
@@ -61,6 +64,11 @@ public class MyLogin extends MyDialog {
         getButton().add(cancelButton);
     }
 
+    public static String[] returnLoginData() {
+        return new String[]{name.getText(), String.valueOf(pass.getPassword())};
+    }
+
+    // singleton: to make only one instance of this object possible
     public static MyLogin getInstance() {
         if (login == null) {
             login = new MyLogin();
@@ -68,11 +76,9 @@ public class MyLogin extends MyDialog {
         return login;
     }
 
+    // remove this messageframe to be ready for the garbage
+    // to show message in a further way
     public static void removeLogin() {
         login = null;
-    }
-
-    public static String[] returnLoginData(){
-        return new String[]{name.getText(), String.valueOf(pass.getPassword())};
     }
 }

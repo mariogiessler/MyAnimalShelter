@@ -10,6 +10,10 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
+// this message is vissible, if a database insert was succesfull
+// The reffered Object is designed in a singleton way
+
+
 public class MyConfirmMessage extends MyMessage {
 
     private static MyConfirmMessage confirmMessage;
@@ -27,6 +31,7 @@ public class MyConfirmMessage extends MyMessage {
         message2.setFont(MyFont.PopUpText.getValue());
         getRowTwo().add(message2);
 
+        // image for this message
         Image img = null;
         try {
             img = ImageIO.read(new File("res/pics/giraffe.png"));
@@ -42,6 +47,7 @@ public class MyConfirmMessage extends MyMessage {
         getButton().add(confirm);
     }
 
+    // singleton: to make only one instance of this object possible
     public static MyConfirmMessage getInstance() {
         if (confirmMessage == null) {
             confirmMessage = new MyConfirmMessage();
@@ -49,8 +55,9 @@ public class MyConfirmMessage extends MyMessage {
         return confirmMessage;
     }
 
+    // remove this messageframe to be ready for the garbage
+    // to show message in a further way
     public static void removeMessage() {
         confirmMessage = null;
     }
-
 }

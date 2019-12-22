@@ -10,7 +10,11 @@ import view.styles.Styles.MyFont;
 import javax.swing.*;
 import java.awt.*;
 
-public class MyDialog extends JFrame {
+// parent for all messages (whit and witout input)
+// i chose a package visibility, because i wont refer this class to any others, except childrens
+
+
+class MyDialog extends JFrame {
 
     private JPanel button, main, content;
 
@@ -58,10 +62,12 @@ public class MyDialog extends JFrame {
         setVisible(true);
         setLocationRelativeTo(UserWindow.getInstance());
 
+        // setting a custom Cursor
         Cursor c = getToolkit().createCustomCursor(new ImageIcon("res/cursor/turtle.png").getImage(), new Point(0, 0), "Cursor");
         setCursor(c);
     }
 
+    // getter for all Mesages
     JPanel getContent() {
         return content;
     }

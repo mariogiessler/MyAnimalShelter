@@ -3,9 +3,9 @@ package controll;
 import model.Database;
 import view.ViewManager;
 import view.messages.MyConfirmMessage;
+import view.messages.MyLogin;
 import view.messages.MyLoginFailMessage;
 import view.messages.MyNewInputFailMessage;
-import view.messages.MyLogin;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -13,14 +13,20 @@ import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 
+// This class is doing all the controlling for the programm
+// The reffered Object is designed in a singleton way
+
 public class Controller {
-    private static FrameMoveListener moveListener = new FrameMoveListener();
+
+    private static FrameMoveListener moveListener;
     private static Controller controller;
 
+    // calling the display
     private Controller() {
         ViewManager.init();
     }
 
+    // watching for Buttons
     private static ActionListener buttonListener = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -50,7 +56,7 @@ public class Controller {
                     break;
 
                 case "loginOK":
-                    if (Database.authorize() ){
+                    if (Database.authorize()) {
                         MyLogin.getInstance().dispose();
                         MyLogin.removeLogin();
                         ViewManager.setCenterForm();
@@ -81,6 +87,9 @@ public class Controller {
             }
         }
     };
+
+    // watching for formfield-changing.
+    // If some inputfield has lost focus, write it in a Hashtable(from Database)
     private static FocusListener fieldListener = new FocusListener() {
         @Override
         public void focusGained(FocusEvent e) {
@@ -93,6 +102,7 @@ public class Controller {
         }
     };
 
+    // all getter-methods for this class
     public static ActionListener getButtonListener() {
         return buttonListener;
     }
@@ -105,6 +115,7 @@ public class Controller {
         return moveListener;
     }
 
+    // singleton: to make only one instance of this object possible
     public static Controller getInstance() {
         if (controller == null) {
             controller = new Controller();
