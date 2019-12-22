@@ -11,6 +11,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
+// showing the inputform
+// The reffered Object is designed in a singleton way
+
 public class Form extends JPanel {
     public static Form form;
     private static ArrayList<JTextField> formFields = new ArrayList<>();
@@ -73,6 +76,7 @@ public class Form extends JPanel {
         add(logoutButton);
     }
 
+    // getter for the form
     public static ArrayList<JTextField> getFormFields() {
         return formFields;
     }
@@ -85,10 +89,11 @@ public class Form extends JPanel {
         return formLabels;
     }
 
+    // singleton: to make only one instance of this object possible
     public static Form getInstance() {
         if (form == null) {
             form = new Form();
-        }else if (!form.isValid()) {
+        } else if (!form.isValid()) {
             new Form();
         }
         return form;

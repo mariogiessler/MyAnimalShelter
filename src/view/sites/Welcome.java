@@ -7,6 +7,9 @@ import view.styles.Styles.MyFont;
 import javax.swing.*;
 import java.awt.*;
 
+// showing the welcome page
+// The reffered Object is designed in a singleton way
+
 public class Welcome extends JPanel {
     public static Welcome welcome;
 
@@ -15,6 +18,7 @@ public class Welcome extends JPanel {
         centerContent();
     }
 
+    // get pictures for the welcome page
     private static void centerImages() {
         JPanel centerImages = new JPanel();
         centerImages.setLayout(new GridLayout(1, 4));
@@ -28,6 +32,7 @@ public class Welcome extends JPanel {
         Center.getInstance().add(centerImages, BorderLayout.PAGE_START);
     }
 
+    // the content of the welcome page
     private static void centerContent() {
         JPanel centerContent = new JPanel();
         centerContent.setLayout(new GridLayout(10, 1));
@@ -52,10 +57,12 @@ public class Welcome extends JPanel {
         Center.getInstance().add(centerContent, BorderLayout.PAGE_END);
     }
 
+
+    // singleton: to make only one instance of this object possible
     public static Welcome getInstance() {
         if (welcome == null) {
             welcome = new Welcome();
-        }else if (!welcome.isValid()) {
+        } else if (!welcome.isValid()) {
             new Welcome();
         }
         return welcome;

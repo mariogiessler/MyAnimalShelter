@@ -11,9 +11,12 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableCellRenderer;
 import java.awt.*;
 
+// showing the result table (all entries in database)
+// The reffered Object is designed in a singleton way
+
 public class Table extends JTable {
-    private static final long serialVersionUID = 1L;
-    private static JScrollPane instance;
+
+    private static JScrollPane scrollPane;
 
     private Table() {
         super(Database.getAnimals(), Form.getFormLabels());
@@ -30,20 +33,22 @@ public class Table extends JTable {
         getTableHeader().setFont(MyFont.TableHeadText.getValue());
         getTableHeader().setBackground(MyColor.TableHeaderColor.getValue());
 
-        instance = new JScrollPane(this);
+        scrollPane = new JScrollPane(this);
+
+        // initalize Layout for the table
         setDefaultEditor(Object.class, null);
         setDefaultRenderer(Object.class, new TableRendering());
 
+        // some designs for the table
         setRowSelectionAllowed(false);
         setFocusable(false);
-
         setRowHeight(30);
         setFont(MyFont.TableMainText.getValue());
-
         setShowVerticalLines(false);
         setShowHorizontalLines(false);
 
-        instance.getVerticalScrollBar().setUI(new BasicScrollBarUI() {
+        // some designs for the scrollbar
+        scrollPane.getVerticalScrollBar().setUI(new BasicScrollBarUI() {
             @Override
             protected void configureScrollBarColors() {
                 this.scrollBarWidth = 25;
@@ -54,25 +59,15 @@ public class Table extends JTable {
                 this.thumbHighlightColor = Color.YELLOW;
             }
         });
-
-        instance.setBackground(MyColor.CenterColor.getValue());
-
-        instance.setBorder(MyBorder.InvisibleBorder.getValue());
+        scrollPane.setBackground(MyColor.CenterColor.getValue());
+        scrollPane.setBorder(MyBorder.InvisibleBorder.getValue());
 
         setOpaque(false);
-        instance.setOpaque(false);
-        instance.getViewport().setOpaque(false);
+        scrollPane.setOpaque(false);
+        scrollPane.getViewport().setOpaque(false);
     }
 
-    public static JScrollPane getInstance() {
-        if (instance == null) {
-            new Table();
-        } else if (!instance.isValid()) {
-            new Table();
-        }
-        return instance;
-    }
-
+    // setting alternating row colors
     private static class TableRendering implements TableCellRenderer {
         private static final DefaultTableCellRenderer defRender = new DefaultTableCellRenderer();
 
@@ -91,5 +86,15 @@ public class Table extends JTable {
             }
             return c;
         }
+    }
+
+    // singleton: to make only one instance of this object possible
+    public static JScrollPane getInstance() {
+        if (scrollPane == null) {
+            new Table();
+        } else if (!scrollPane.isValid()) {
+            new Table();
+        }
+        return scrollPane;
     }
 }

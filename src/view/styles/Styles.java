@@ -6,12 +6,14 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
+// constants for my styles
+
 public class Styles {
 
     public enum MyColor {
         HeaderColor(255, 215, 0),
         CenterColor(240, 240, 200),
-        PopUpColor(240, 240, 200,150),
+        PopUpColor(240, 240, 200, 150),
         ValueFieldColor(250, 250, 195),
         ButtonColor(0, 50, 0),
         TextColor(0, 50, 0),
@@ -75,10 +77,10 @@ public class Styles {
     public enum MyBorder {
         LoweredBorder(BorderFactory.createLoweredBevelBorder()),
         InvisibleBorder(BorderFactory.createEmptyBorder(25, 25, 25, 25)),
-         PopUpInvisibleBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5)),
+        PopUpInvisibleBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5)),
         DoubleCompountBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(25, 25, 25, 25), BorderFactory.createCompoundBorder(BorderFactory.createRaisedBevelBorder(), BorderFactory.createLoweredBevelBorder()))),
         HeadBorder(BorderFactory.createEmptyBorder(20, 0, 20, 0)),
-        MessageBorder( BorderFactory.createCompoundBorder(BorderFactory.createRaisedBevelBorder(),BorderFactory.createEmptyBorder(10, 10, 10, 10)));
+        MessageBorder(BorderFactory.createCompoundBorder(BorderFactory.createRaisedBevelBorder(), BorderFactory.createEmptyBorder(10, 10, 10, 10)));
 
         private Border value;
 

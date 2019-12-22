@@ -13,8 +13,11 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 
+// showing the header for the whole programm
+// The reffered Object is designed in a singleton way
+
 public class Header extends JPanel {
-    private static final long serialVersionUID = 1L;
+
     private static Header header;
     private static String dateString;
 
@@ -41,8 +44,10 @@ public class Header extends JPanel {
 
         add(date, BorderLayout.PAGE_END);
 
+        // setting a custom Cursor
         setCursor(Cursor.getPredefinedCursor(Cursor.MOVE_CURSOR));
 
+        // actualize the timefield in the header
         new Timer(500, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -53,12 +58,12 @@ public class Header extends JPanel {
 
         }).start();
 
-
+        // adding the frameMoveListener for dragging this frame
         addMouseMotionListener(FrameMoveListener.getInstance());
         addMouseListener(FrameMoveListener.getInstance());
     }
 
-
+    // singleton: to make only one instance of this object possible
     public static Header getInstance() {
         if (header == null) {
             header = new Header();

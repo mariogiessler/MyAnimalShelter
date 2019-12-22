@@ -26,15 +26,16 @@ public class Controller {
         ViewManager.init();
     }
 
-    // watching for Buttons
+    // watching for all buttons of the programm
     private static ActionListener buttonListener = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            String title = ((JButton) e.getSource()).getText();
+
             String name = ((JButton) e.getSource()).getName();
-            System.out.println(name);
+
             switch (name) {
                 case "home":
+                case "logout":
                     ViewManager.setHome();
                     break;
                 case "exit":
@@ -80,9 +81,6 @@ public class Controller {
                     } else {
                         ViewManager.displayFail();
                     }
-                    break;
-                case "logout":
-                    ViewManager.setHome();
                     break;
             }
         }

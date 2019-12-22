@@ -1,15 +1,16 @@
 package view.styles;
 
-import view.styles.Styles;
+import view.styles.Styles.MyColor;
 
 import javax.swing.*;
 import java.awt.*;
-import view.styles.Styles.MyColor;
+
+// design all labels for the programm in a custom way
 
 public class MyLabel extends JLabel {
 
-    public MyLabel(){
-       setPreferredSize(new Dimension(50, 30));
+    public MyLabel() {
+        setPreferredSize(new Dimension(50, 30));
     }
 
     public MyLabel(String text) {

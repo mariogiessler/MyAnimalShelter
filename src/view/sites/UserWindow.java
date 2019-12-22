@@ -3,9 +3,11 @@ package view.sites;
 import javax.swing.*;
 import java.awt.*;
 
+// initalize the mainframe
+// The reffered Object is designed in a singleton way
+
 public class UserWindow extends JFrame {
 
-    private static final long serialVersionUID = 1L;
     private static UserWindow window;
 
     private JPanel centerContent = new JPanel();
@@ -20,6 +22,7 @@ public class UserWindow extends JFrame {
         setLocationRelativeTo(null);
     }
 
+    // singleton: to make only one instance of this object possible
     public static UserWindow getInstance() {
         if (window == null) {
             window = new UserWindow();

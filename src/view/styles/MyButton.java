@@ -5,9 +5,11 @@ import controll.Controller;
 import javax.swing.*;
 import java.awt.*;
 
+// design all buttons for the programm in a custom way
+
 public class MyButton extends JButton {
 
-    public MyButton(String text){
+    public MyButton(String text) {
         super(text);
         setFocusPainted(false);
         addActionListener(Controller.getButtonListener());

@@ -15,7 +15,8 @@ import static com.mongodb.client.model.Filters.eq;
 
 // Connection to a Mongo-DB
 // on this programm it is a local DB for testing enviroment
-
+// this is choose abstract to make sure of having no instance,
+// because of only static methods and no objects
 
 public abstract class Database {
     static MongoClient connection = new MongoClient();

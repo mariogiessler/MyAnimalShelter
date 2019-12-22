@@ -6,7 +6,11 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
-public class AnimalPic {
+// loading the pictures for the welcome page
+// this is choose abstract to make sure of having no instance,
+// because of only static methods and no objects
+
+public abstract class AnimalPic {
     public static ImageIcon getCat() {
         Image img = null;
         try {
