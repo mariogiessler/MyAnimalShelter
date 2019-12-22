@@ -16,6 +16,7 @@ public class Styles {
         PopUpColor(240, 240, 200, 150),
         ValueFieldColor(250, 250, 195),
         ButtonColor(0, 50, 0),
+        ButtonClickedColor(70, 120, 70),
         TextColor(0, 50, 0),
         TableHeaderColor(255, 215, 0, 150),
         TableRowColor(230, 230, 150, 150),
