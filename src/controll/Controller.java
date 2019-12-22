@@ -35,50 +35,19 @@ public class Controller {
                 case "logout":
                     ViewManager.setHome();
                     break;
+
+                // quit programm
                 case "exit":
                     System.exit(0);
                     break;
+
+                // table actions
                 case "tableView":
-                    ViewManager.setCenterTable();
-                    break;
-                case "newInput":
-                    ViewManager.displayLogin();
-                    break;
-                case "failOK":
-                    MyNewInputFailMessage.getInstance().dispose();
-                    MyNewInputFailMessage.removeMessage();
-                    break;
-                case "confirmOK":
-                    MyConfirmMessage.getInstance().dispose();
-                    MyConfirmMessage.removeMessage();
+                case "tableAll":
+                    ViewManager.setCenterTable("");
                     break;
 
-                case "loginOK":
-                    if (Database.authorize()) {
-                        MyLogin.getInstance().dispose();
-                        MyLogin.removeLogin();
-                        ViewManager.setCenterForm();
-                    } else {
-                        ViewManager.displayLoginFail();
-                    }
-                    break;
-                case "loginFailOK":
-                    MyLoginFailMessage.getInstance().dispose();
-                    MyLoginFailMessage.removeMessage();
-                    break;
-                case "loginCancel":
-                    MyLogin.getInstance().dispose();
-                    MyLogin.removeLogin();
-                    break;
-                case "formAdd":
-                    if (Database.addAnimal()) {
-                        Database.clearFormValues();
-                        ViewManager.clearForm();
-                        ViewManager.displayConfirm();
-                    } else {
-                        ViewManager.displayFail();
-                    }
-                    break;
+                // search input
                 case "search":
                     ViewManager.setCenterTable(ViewManager.displaySearch());
                     break;
@@ -91,8 +60,46 @@ public class Controller {
                     MySearchInput.getInstance().dispose();
                     MySearchInput.removeSearch();
                     break;
-                case "tableAll":
-                    ViewManager.setCenterTable("");
+
+                // login actions
+                case "newInput":
+                    ViewManager.displayLogin();
+                    break;
+                case "loginOK":
+                    if (Database.authorize()) {
+                        MyLogin.getInstance().dispose();
+                        MyLogin.removeLogin();
+                        ViewManager.setCenterForm();
+                    } else {
+                        ViewManager.displayLoginFail();
+                    }
+                    break;
+                case "loginCancel":
+                    MyLogin.getInstance().dispose();
+                    MyLogin.removeLogin();
+                    break;
+                case "loginFailOK":
+                    MyLoginFailMessage.getInstance().dispose();
+                    MyLoginFailMessage.removeMessage();
+                    break;
+
+                // form actions
+                case "formAdd":
+                    if (Database.addAnimal()) {
+                        Database.clearFormValues();
+                        ViewManager.clearForm();
+                        ViewManager.displayConfirm();
+                    } else {
+                        ViewManager.displayFail();
+                    }
+                    break;
+                case "failOK":
+                    MyNewInputFailMessage.getInstance().dispose();
+                    MyNewInputFailMessage.removeMessage();
+                    break;
+                case "confirmOK":
+                    MyConfirmMessage.getInstance().dispose();
+                    MyConfirmMessage.removeMessage();
                     break;
             }
         }

@@ -60,5 +60,4 @@ public class MyLoginFailMessage extends MyMessage {
     public static void removeMessage() {
         loginFailMessage = null;
     }
-
 }

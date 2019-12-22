@@ -21,21 +21,15 @@ public class MySearchInput extends MyDialog {
         super("Datenbank durchsuchen !");
 
         MyLabel headLine = new MyLabel("Wonach wollen Sie in der Datenbank suchen?");
-        JPanel row = new JPanel();
-
-        row.setOpaque(false);
-
-        MyLabel searchLabel = new MyLabel("Suchbegriff :");
-        searchLabel.setPreferredSize(new Dimension(200, 30));
-        searchLabel.setHorizontalAlignment(SwingConstants.RIGHT);
-        searchString = new MyTextField();
-        row.add(searchLabel);
-        row.add(searchString);
 
         JPanel content = new JPanel();
-        content.setLayout(new GridLayout(3, 1));
+        content.setLayout(new GridLayout(5, 1));
+        content.add(new JLabel()); // blank space
         content.add(headLine);
-        content.add(row);
+        content.add(new JLabel()); // blank space
+        searchString = new MyTextField();
+        content.add(searchString);
+        content.add(new JLabel()); // blank space
 
         content.setOpaque(false);
         content.setBorder(MyBorder.PopUpInvisibleBorder.getValue());

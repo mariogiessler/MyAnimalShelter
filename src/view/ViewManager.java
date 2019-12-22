@@ -42,7 +42,8 @@ public abstract class ViewManager {
         window.revalidate();
     }
 
-    public static void setCenterTable() {
+    public static void setCenterTable(String in) {
+        input = in;
         Center.getInstance().removeAll();
         Center.getInstance().add(Table.getInstance(Database.getAnimals(input), Form.getFormLabels()), BorderLayout.CENTER);
 
@@ -62,11 +63,6 @@ public abstract class ViewManager {
         window.revalidate();
     }
 
-    public static void setCenterTable(String in) {
-        input = in;
-        setCenterTable();
-    }
-
     public static void setHome() {
         Center.getInstance().removeAll();
         Welcome.getInstance();
@@ -79,14 +75,15 @@ public abstract class ViewManager {
 
     // clearing the formfields
     public static void clearForm() {
-        for (JTextField field : Form.getInstance().getFields()) {
+        Form.getInstance();
+        for (JTextField field : Form.getFields()) {
             field.setText("");
         }
     }
 
     // display messages
     public static void displayLogin() {
-        MyLogin.getInstance();
+        MyLogin.getInstance().setVisible(true);
     }
 
     public static void displayConfirm() {
@@ -103,7 +100,7 @@ public abstract class ViewManager {
     }
 
     public static String displaySearch() {
-        MySearchInput.getInstance();
+        MySearchInput.getInstance().setVisible(true);
         return input;
     }
 
