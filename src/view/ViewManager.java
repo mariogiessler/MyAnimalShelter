@@ -1,10 +1,9 @@
 package view;
 
-import view.messages.MyConfirmMessage;
-import view.messages.MyLogin;
-import view.messages.MyLoginFailMessage;
-import view.messages.MyNewInputFailMessage;
+import model.Database;
+import view.messages.*;
 import view.sites.*;
+import view.styles.MyButton;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,6 +14,7 @@ import java.awt.*;
 
 public abstract class ViewManager {
     private static UserWindow window;
+    private static String input = "";
 
     // initalize frame
     public static void init() {
@@ -44,8 +44,27 @@ public abstract class ViewManager {
 
     public static void setCenterTable() {
         Center.getInstance().removeAll();
-        Center.getInstance().add(Table.getInstance());
+        Center.getInstance().add(Table.getInstance(Database.getAnimals(input), Form.getFormLabels()), BorderLayout.CENTER);
+
+        MyButton searchButton = null;
+
+        if (input.equals("")) {
+            searchButton = new MyButton("Datenbank durchsuchen");
+            searchButton.setName("search");
+
+        } else {
+            searchButton = new MyButton("komplette Datenbank anzeigen");
+            searchButton.setName("tableAll");
+        }
+        searchButton.setPreferredSize(new Dimension(600, 30));
+
+        Center.getInstance().add(searchButton, BorderLayout.PAGE_END);
         window.revalidate();
+    }
+
+    public static void setCenterTable(String in) {
+        input = in;
+        setCenterTable();
     }
 
     public static void setHome() {
@@ -81,6 +100,11 @@ public abstract class ViewManager {
 
     public static void displayLoginFail() {
         MyLoginFailMessage.getInstance();
+    }
+
+    public static String displaySearch() {
+        MySearchInput.getInstance();
+        return input;
     }
 
     // set frame position, to make it draggable

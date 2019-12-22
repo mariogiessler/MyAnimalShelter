@@ -29,7 +29,7 @@ public class Header extends JPanel {
         dateString = LocalDateTime.now().format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.FULL, FormatStyle.SHORT));
         JLabel date = new JLabel(dateString);
 
-        JLabel welcome = new JLabel("Willkommen im Tierheim Moabit");
+        JLabel welcome = new JLabel("Willkommen im Tierheim \"Animal Shelter\"");
         welcome.setFont(MyFont.HeadText.getValue());
         welcome.setForeground(MyColor.TextColor.getValue());
         welcome.setHorizontalAlignment(SwingConstants.CENTER);

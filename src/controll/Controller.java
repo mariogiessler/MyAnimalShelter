@@ -2,10 +2,7 @@ package controll;
 
 import model.Database;
 import view.ViewManager;
-import view.messages.MyConfirmMessage;
-import view.messages.MyLogin;
-import view.messages.MyLoginFailMessage;
-import view.messages.MyNewInputFailMessage;
+import view.messages.*;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -81,6 +78,21 @@ public class Controller {
                     } else {
                         ViewManager.displayFail();
                     }
+                    break;
+                case "search":
+                    ViewManager.setCenterTable(ViewManager.displaySearch());
+                    break;
+                case "searchOK":
+                    MySearchInput.getInstance().dispose();
+                    MySearchInput.removeSearch();
+                    ViewManager.setCenterTable(MySearchInput.getInput());
+                    break;
+                case "searchCancel":
+                    MySearchInput.getInstance().dispose();
+                    MySearchInput.removeSearch();
+                    break;
+                case "tableAll":
+                    ViewManager.setCenterTable("");
                     break;
             }
         }

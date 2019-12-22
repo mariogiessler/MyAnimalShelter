@@ -18,8 +18,8 @@ public class Table extends JTable {
 
     private static JScrollPane scrollPane;
 
-    private Table() {
-        super(Database.getAnimals(), Form.getFormLabels());
+    private Table(Object[][] rows, Object[] columns) {
+        super(rows,columns);
 
         JLabel label = new JLabel("Alle Tierchen in der Übersicht:");
         label.setPreferredSize(new Dimension(600, 70));
@@ -89,11 +89,11 @@ public class Table extends JTable {
     }
 
     // singleton: to make only one instance of this object possible
-    public static JScrollPane getInstance() {
+    public static JScrollPane getInstance(Object[][] rows, Object[] columns) {
         if (scrollPane == null) {
-            new Table();
+            new Table(rows,columns);
         } else if (!scrollPane.isValid()) {
-            new Table();
+            new Table(rows,columns);
         }
         return scrollPane;
     }
